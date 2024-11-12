@@ -22,12 +22,6 @@ class Paslon extends Model
         'foto',
     ];
 
-    // Relasi dengan model Cake
-    public function cakes()
-    {
-        return $this->hasMany(Cake::class, 'id_paslon');
-    }
-
     // Relasi dengan model Vote
     public function votes()
     {
