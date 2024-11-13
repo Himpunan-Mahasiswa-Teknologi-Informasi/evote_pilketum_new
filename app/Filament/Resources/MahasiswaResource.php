@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MahasiswaResource\Pages;
+use App\Filament\Imports\MahasiswaImporter;
 use App\Filament\Resources\MahasiswaResource\RelationManagers;
 use App\Models\Mahasiswa;
 use Filament\Forms;
@@ -13,6 +14,10 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Actions\ImportAction;
+use Filament\Tables\Actions\Action;
+use Illuminate\Support\Facades\Log;
 
 class MahasiswaResource extends Resource
 {
@@ -39,11 +44,15 @@ class MahasiswaResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->headerActions([
+                ImportAction::make()
+                    ->label('Import CSV')
+                    ->importer(MahasiswaImporter::class)
+            ])
             ->columns([
                 Tables\Columns\TextColumn::make('nim')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status_vote'),
-
             ])
             ->filters([
                 SelectFilter::make('status_vote')
