@@ -50,7 +50,8 @@ class MahasiswaResource extends Resource
                     ->importer(MahasiswaImporter::class)
             ])
             ->columns([
-                Tables\Columns\TextColumn::make('nim'),
+                Tables\Columns\TextColumn::make('nim')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('status_vote'),
             ])
             ->filters([

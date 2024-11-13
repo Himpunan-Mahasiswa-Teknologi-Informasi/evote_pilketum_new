@@ -41,6 +41,7 @@ class VoteResource extends Resource
                 Tables\Columns\TextColumn::make('paslon.no_urut')
                     ->label('No Urut Paslon'),
                 Tables\Columns\TextColumn::make('mahasiswa.nim')
+                    ->searchable()
                     ->label('NIM Mahasiswa'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Waktu Voting'),
