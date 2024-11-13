@@ -142,7 +142,13 @@
         <h1>PEMILIHAN KETUA UMUM</h1>
         <h2>HIMPUNAN MAHASISWA TEKNOLOGI INFORMASI</h2>
         
-        <form id="loginForm">
+        @if(session('error'))
+            <div class="alert alert-danger">
+                <b>Opps!</b> {{session('error')}}
+            </div>
+            @endif
+            <form action="{{ route('actionlogin') }}" method="post">
+            @csrf
             <div class="input-group">
                 <label for="nim">NIM</label>
                 <input type="text" id="nim" name="nim" placeholder="username@gmail.com" required>
