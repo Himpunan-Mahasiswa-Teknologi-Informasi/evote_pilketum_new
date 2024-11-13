@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemilihan Ketua Umum HMTI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/placeholder.svg?height=400&width=1200');
+            background-size: cover;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .header-text {
+            max-width: 800px;
+            margin: 1rem auto;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .candidates {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .candidates {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .candidate-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .candidate-header {
+            background: #2c5282;
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .candidate-content {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .candidate-image {
+            width: 200px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .vision-mission {
+            margin: 1rem auto;
+            text-align: center;
+        }
+
+        .vision-mission h3 {
+            color: #2c5282;
+            margin: 1rem 0;
+        }
+
+        .vision-mission ol {
+            list-style-position: outside;
+            margin: 0 1rem;
+            text-align: justify;
+        }
+
+        .voting-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .voting-options {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .vote-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .vote-card img {
+            width: 180px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .vote-card h3 {
+            margin-top: 0.5rem;
+        }
+
+        .vote-card.selected {
+            outline: 3px solid #2c5282;
+        }
+
+        .vote-check {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #2c5282;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+            display: none;
+        }
+
+        .vote-card.selected .vote-check {
+            display: flex;
+            background: #2c5282;
+            content: "✓";
+        }
+
+        .vote-button {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .vote-button:hover {
+            background: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="/placeholder.svg?height=80&width=80" alt="Logo HMTI" class="logo">
+        <h1>PEMILIHAN KETUA UMUM</h1>
+        <h2>Himpunan Mahasiswa Teknologi Informasi</h2>
+        <p class="header-text">
+            Pemilihan Ketua Umum (Pilketum) Himpunan Mahasiswa Teknologi Informasi merupakan ajang demokrasi mahasiswa untuk memilih ketua umum baru yang akan memimpin selama satu periode. Pilketum menjadi sarana regenerasi kepemimpinan di HMTI demi kemajuan himpunan, pengembangan anggota, serta terciptanya lingkungan organisasi yang lebih dinamis dan progresif.
+        </p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">CALON KETUA UMUM</h2>
+        
+        <div class="candidates">
+            <!-- Kandidat 1 -->
+            <div class="candidate-card">
+                <div class="candidate-header">
+                    <h3>KANDIDAT 1</h3>
+                </div>
+                <div class="candidate-content">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Foto Ghoffar Abdul Ja'far" class="candidate-image">
+                    <h3>Ghoffar Abdul Ja'far</h3>
+                    <p>D-IV Teknik Informatika</p>
+                    
+                    <div class="vision-mission">
+                        <h3>VISI</h3>
+                        <p>Menciptakan ekosistem pada Himpunan Mahasiswa Teknologi Informasi yang inovatif dan kreatif sebagai sarana kolaborasi, penyalur aspirasi, serta wadah peningkatan kompetensi mahasiswa Jurusan Teknologi Informasi.</p>
+                        
+                        <h3>MISI</h3>
+                        <ol>
+                            <li>Membangun hubungan yang kuat antar anggota Himpunan Mahasiswa Teknologi Informasi dalam peningkatan kompetensi untuk menciptakan ekosistem organisasi yang inovatif dan kreatif.</li>
+                            <li>Sebagai sarana kolaborasi bagi Mahasiswa Jurusan Teknologi Informasi yang adaptif dalam melaksanakan program kerja dan agenda Himpunan Mahasiswa Teknologi Informasi agar tetap relevan dengan perkembangan zaman.</li>
+                            <li>Sebagai sarana penyalur aspirasi yang efektif bagi Mahasiswa Jurusan Teknologi Informasi.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kandidat 2 -->
+            <div class="candidate-card">
+                <div class="candidate-header">
+                    <h3>KANDIDAT 2</h3>
+                </div>
+                <div class="candidate-content">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Foto Ramadhan Maulana A." class="candidate-image">
+                    <h3>Ramadhan Maulana A.</h3>
+                    <p>D-IV Sistem Informasi Bisnis</p>
+                    
+                    <div class="vision-mission">
+                        <h3>VISI</h3>
+                        <p>Menciptakan ekosistem pada Himpunan Mahasiswa Teknologi Informasi yang inovatif dan kreatif sebagai sarana kolaborasi, penyalur aspirasi, serta wadah peningkatan kompetensi mahasiswa Jurusan Teknologi Informasi.</p>
+                        
+                        <h3>MISI</h3>
+                        <ol>
+                            <li>Membangun hubungan yang kuat antar anggota Himpunan Mahasiswa Teknologi Informasi dalam peningkatan kompetensi untuk menciptakan ekosistem organisasi yang inovatif dan kreatif.</li>
+                            <li>Sebagai sarana kolaborasi bagi Mahasiswa Jurusan Teknologi Informasi yang adaptif dalam melaksanakan program kerja dan agenda Himpunan Mahasiswa Teknologi Informasi agar tetap relevan dengan perkembangan zaman.</li>
+                            <li>Sebagai sarana penyalur aspirasi yang efektif bagi Mahasiswa Jurusan Teknologi Informasi.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="voting-section">
+            <h2 class="section-title">PILIHAN VOTING</h2>
+            <div class="voting-options">
+                <!-- Voting Cards -->
+                <div class="vote-card" onclick="selectCandidate(this)">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Foto Kandidat 1">
+                    <h3>Kandidat 1</h3>
+                    <span class="vote-check">✓</span>
+                </div>
+                
+                <div class="vote-card" onclick="selectCandidate(this)">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Foto Kandidat 2">
+                    <h3>Kandidat 2</h3>
+                    <span class="vote-check">✓</span>
+                </div>
+            </div>
+            <button class="vote-button">VOTE</button>
+        </div>
+    </div>
+
+    <script>
+        function selectCandidate(card) {
+            const selected = document.querySelector(".vote-card.selected");
+            if (selected) selected.classList.remove("selected");
+            card.classList.add("selected");
+        }
+    </script>
+</body>
+</html>
