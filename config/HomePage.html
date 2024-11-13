@@ -39,12 +39,12 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem 2rem;
         }
 
         .section-title {
             text-align: center;
-            margin: 2rem 0;
+            margin: 1rem 0;
             font-size: 1.5rem;
             font-weight: bold;
         }
@@ -53,7 +53,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 1rem 0;
         }
 
         @media (min-width: 768px) {
@@ -77,12 +77,13 @@
         }
 
         .candidate-content {
+            text-align: center;
             padding: 1rem;
         }
 
         .candidate-image {
             width: 200px;
-            height: 200px;
+            height: 280px;
             object-fit: cover;
             border-radius: 5px;
             margin: 1rem auto;
@@ -90,7 +91,8 @@
         }
 
         .vision-mission {
-            margin: 1rem 0;
+            margin: 1rem auto;
+            text-align: center;
         }
 
         .vision-mission h3 {
@@ -98,42 +100,26 @@
             margin: 1rem 0;
         }
 
-        .vision-mission ul {
-            list-style-position: inside;
-            margin-left: 1rem;
-        }
-
-        .video-section {
-            background: white;
-            border-radius: 10px;
-            padding: 1rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .video-placeholder {
-            background: #f0f0f0;
-            width: 100%;
-            height: 300px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .vision-mission ol {
+            list-style-position: outside;
+            margin: 0 1rem;
+            text-align: justify;
         }
 
         .voting-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            margin: 2rem 0;
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .voting-options {
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 1.5rem;
             justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
         .vote-card {
@@ -141,9 +127,23 @@
             padding: 1rem;
             border-radius: 10px;
             text-align: center;
-            cursor: pointer;
             position: relative;
             width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .vote-card img {
+            width: 180px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .vote-card h3 {
+            margin-top: 0.5rem;
         }
 
         .vote-card.selected {
@@ -158,10 +158,18 @@
             height: 20px;
             border: 2px solid #2c5282;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+            display: none;
         }
 
         .vote-card.selected .vote-check {
+            display: flex;
             background: #2c5282;
+            content: "✓";
         }
 
         .vote-button {
@@ -173,6 +181,7 @@
             font-size: 1.2rem;
             cursor: pointer;
             transition: background 0.3s;
+            margin-top: 1.5rem;
         }
 
         .vote-button:hover {
@@ -209,11 +218,11 @@
                         <p>Menciptakan ekosistem pada Himpunan Mahasiswa Teknologi Informasi yang inovatif dan kreatif sebagai sarana kolaborasi, penyalur aspirasi, serta wadah peningkatan kompetensi mahasiswa Jurusan Teknologi Informasi.</p>
                         
                         <h3>MISI</h3>
-                        <ul>
+                        <ol>
                             <li>Membangun hubungan yang kuat antar anggota Himpunan Mahasiswa Teknologi Informasi dalam peningkatan kompetensi untuk menciptakan ekosistem organisasi yang inovatif dan kreatif.</li>
                             <li>Sebagai sarana kolaborasi bagi Mahasiswa Jurusan Teknologi Informasi yang adaptif dalam melaksanakan program kerja dan agenda Himpunan Mahasiswa Teknologi Informasi agar tetap relevan dengan perkembangan zaman.</li>
                             <li>Sebagai sarana penyalur aspirasi yang efektif bagi Mahasiswa Jurusan Teknologi Informasi.</li>
-                        </ul>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -233,60 +242,41 @@
                         <p>Menciptakan ekosistem pada Himpunan Mahasiswa Teknologi Informasi yang inovatif dan kreatif sebagai sarana kolaborasi, penyalur aspirasi, serta wadah peningkatan kompetensi mahasiswa Jurusan Teknologi Informasi.</p>
                         
                         <h3>MISI</h3>
-                        <ul>
+                        <ol>
                             <li>Membangun hubungan yang kuat antar anggota Himpunan Mahasiswa Teknologi Informasi dalam peningkatan kompetensi untuk menciptakan ekosistem organisasi yang inovatif dan kreatif.</li>
                             <li>Sebagai sarana kolaborasi bagi Mahasiswa Jurusan Teknologi Informasi yang adaptif dalam melaksanakan program kerja dan agenda Himpunan Mahasiswa Teknologi Informasi agar tetap relevan dengan perkembangan zaman.</li>
                             <li>Sebagai sarana penyalur aspirasi yang efektif bagi Mahasiswa Jurusan Teknologi Informasi.</li>
-                        </ul>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="video-section">
-            <h2 class="section-title">VIDEO ORASI EKSTERNAL CALON KANDIDAT KETUA UMUM</h2>
-            <div class="video-placeholder">
-                Video Player
-            </div>
-        </div>
-
         <div class="voting-section">
+            <h2 class="section-title">PILIHAN VOTING</h2>
             <div class="voting-options">
-                <div class="vote-card" onclick="selectCandidate(1)">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Kandidat 1" class="candidate-image">
-                    <h3>Ghoffar Abdul Ja'far</h3>
-                    <p>D-IV Teknik Informatika</p>
-                    <div class="vote-check"></div>
+                <!-- Voting Cards -->
+                <div class="vote-card" onclick="selectCandidate(this)">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Foto Kandidat 1">
+                    <h3>Kandidat 1</h3>
+                    <span class="vote-check">✓</span>
                 </div>
-                <div class="vote-card" onclick="selectCandidate(2)">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Kandidat 2" class="candidate-image">
-                    <h3>Ramadhan Maulana A.</h3>
-                    <p>D-IV Sistem Informasi Bisnis</p>
-                    <div class="vote-check"></div>
+                
+                <div class="vote-card" onclick="selectCandidate(this)">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Foto Kandidat 2">
+                    <h3>Kandidat 2</h3>
+                    <span class="vote-check">✓</span>
                 </div>
             </div>
-            <button class="vote-button" onclick="submitVote()">VOTE</button>
+            <button class="vote-button">VOTE</button>
         </div>
     </div>
 
     <script>
-        let selectedCandidate = null;
-
-        function selectCandidate(candidateNumber) {
-            selectedCandidate = candidateNumber;
-            document.querySelectorAll('.vote-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-            document.querySelectorAll('.vote-card')[candidateNumber - 1].classList.add('selected');
-        }
-
-        function submitVote() {
-            if (selectedCandidate) {
-                alert(`Anda telah memilih Kandidat ${selectedCandidate}`);
-                // Here you would typically send the vote to a server
-            } else {
-                alert('Silakan pilih kandidat terlebih dahulu');
-            }
+        function selectCandidate(card) {
+            const selected = document.querySelector(".vote-card.selected");
+            if (selected) selected.classList.remove("selected");
+            card.classList.add("selected");
         }
     </script>
 </body>
