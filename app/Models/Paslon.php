@@ -20,6 +20,8 @@ class Paslon extends Model
         'visi',
         'misi',
         'foto',
+        'nama',
+        'prodi'
     ];
 
     // Relasi dengan model Vote

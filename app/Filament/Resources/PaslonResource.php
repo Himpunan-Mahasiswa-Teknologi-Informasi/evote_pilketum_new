@@ -31,6 +31,14 @@ class PaslonResource extends Resource
                     ->label('No Urut')
                     ->required(),
 
+                Forms\Components\TextInput::make('nama')
+                    ->label('Nama Calon Kandidat')
+                    ->required(),
+
+                Forms\Components\TextInput::make('prodi')
+                    ->label('Program Studi')
+                    ->required(),
+
                 Forms\Components\Textarea::make('visi')
                     ->label('Visi')
                     ->required()
@@ -56,6 +64,8 @@ class PaslonResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('no_urut'),
+                Tables\Columns\TextColumn::make('nama'),
+                Tables\Columns\TextColumn::make('prodi'),
                 Tables\Columns\TextColumn::make('visi'),
                 Tables\Columns\TextColumn::make('misi'),
 

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('paslons', function (Blueprint $table) {
             $table->id('id_paslon');
             $table->string('no_urut');
+            $table->string('nama');
+            $table->string('prodi');
             $table->longText('visi');
             $table->longText('misi');
             $table->string('foto');
