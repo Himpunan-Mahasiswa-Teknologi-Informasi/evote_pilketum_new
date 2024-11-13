@@ -10,7 +10,7 @@ class CreateImportsTable extends Migration
     {
         Schema::create('imports', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');  // Assuming you have a users table
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('file_name');
             $table->text('file_path');
             $table->string('importer');
