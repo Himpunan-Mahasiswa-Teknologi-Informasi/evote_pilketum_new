@@ -6,6 +6,7 @@ use App\Filament\Resources\PaslonResource\Pages;
 use App\Filament\Resources\PaslonResource\RelationManagers;
 use App\Models\Paslon;
 use Filament\Forms;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -44,10 +45,17 @@ class PaslonResource extends Resource
                     ->required()
                     ->rows(4),
 
-                Forms\Components\Textarea::make('misi')
-                    ->label('Misi')
-                    ->required()
-                    ->rows(4),
+                Forms\Components\Repeater::make('misis')
+                    ->relationship('misis')
+                    ->label('Daftar Misi')
+                    ->schema([
+                        Forms\Components\Textarea::make('misi')
+                            ->label('Misi')
+                            ->required()
+                    ])
+                    ->defaultItems(1)
+                    ->minItems(1)
+                    ->columns(1),
 
                 Forms\Components\FileUpload::make('foto')
                     ->label('Foto')

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('nama');
             $table->string('prodi');
             $table->longText('visi');
-            $table->longText('misi');
             $table->string('foto');
             $table->timestamps();
         });

@@ -18,7 +18,6 @@ class Paslon extends Model
     protected $fillable = [
         'no_urut',
         'visi',
-        'misi',
         'foto',
         'nama',
         'prodi'
@@ -28,6 +27,11 @@ class Paslon extends Model
     public function votes()
     {
         return $this->hasMany(Vote::class, 'id_paslon');
+    }
+
+    public function misis()
+    {
+        return $this->hasMany(Misi::class, 'id_paslon');
     }
 
     public static function booted()
