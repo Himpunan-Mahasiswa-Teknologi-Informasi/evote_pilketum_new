@@ -57,11 +57,12 @@ class PaslonResource extends Resource
                     ->minItems(1)
                     ->columns(1),
 
+                // Konfigurasi untuk upload foto
                 Forms\Components\FileUpload::make('foto')
                     ->label('Foto')
                     ->image()
                     ->required()
-                    ->maxSize(10240)
+                    ->maxSize(10240) // maksimal ukuran file dalam kilobyte (KB)
                     ->disk('public') // Menyimpan file di disk 'public'
                     ->directory('photos'), // Menyimpan file di folder 'photos' dalam public disk
             ]);
@@ -75,18 +76,21 @@ class PaslonResource extends Resource
                 Tables\Columns\TextColumn::make('nama'),
                 Tables\Columns\TextColumn::make('prodi'),
                 Tables\Columns\TextColumn::make('visi'),
-                Tables\Columns\TextColumn::make('misi'),
+                Tables\Columns\TextColumn::make('misis')
+                    ->label('Daftar Misi')
+                    ->formatStateUsing(function ($record) {
+                        return $record->misis->pluck('misi')->implode(', ');
+                    }),
 
                 // Menampilkan gambar dengan path yang disimpan di database
-                ImageColumn::make('foto')
-                    ->label('Foto')
-                    ->disk('public') // Menentukan disk tempat gambar disimpan
-                    ->width(100) // Menentukan lebar gambar yang ditampilkan
-                    ->height(100) // Menentukan tinggi gambar yang ditampilkan
-                    ->getStateUsing(function ($record) {
-                        // Menyusun URL gambar berdasarkan path yang disimpan
-                        return asset('storage/' . $record->foto);
-                    }),
+                // ImageColumn::make('foto')
+                //     ->label('Foto')
+                //     ->disk('public') // Disk tempat gambar disimpan
+                //     ->width(100) // Lebar gambar yang ditampilkan
+                //     ->height(100) // Tinggi gambar yang ditampilkan
+                //     ->getStateUsing(function ($record) {
+                //         return $record->foto ? asset('storage/' . $record->foto) : null;
+                //     }),
             ])
             ->filters([ /* Tambahkan filter jika perlu */])
             ->actions([ /* Tambahkan actions jika perlu */])

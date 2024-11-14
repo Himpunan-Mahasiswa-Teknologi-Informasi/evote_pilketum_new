@@ -230,7 +230,7 @@
 
 <body>
     <header class="header">
-        <img src="/placeholder.svg?height=80&width=80" alt="Logo HMTI" class="logo">
+        <img src={{ asset('storage/image/LOGO-HMTI.png')}} alt="Logo HMTI" class="logo">
         <h1>PEMILIHAN KETUA UMUM</h1>
         <h2>Himpunan Mahasiswa Teknologi Informasi</h2>
         <p class="header-text">

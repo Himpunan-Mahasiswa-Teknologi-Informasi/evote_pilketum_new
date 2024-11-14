@@ -135,8 +135,10 @@
     
     <div class="login-container">
         <div class="logos">
-            <div class="logo"></div>
-            <div class="logo"></div>
+            <img src="{{ asset('storage/image/LOGO-POLINEMA.png') }}" alt="Logo Polinema" class="logo">
+            <img src="{{ asset('storage/image/LOGO-HMTI.png') }}" alt="Logo HMTI" class="logo">
+            {{-- <div class="logo"></div>
+            <div class="logo"></div> --}}
         </div>
         
         <h1>PEMILIHAN KETUA UMUM</h1>
@@ -151,7 +153,7 @@
             @csrf
             <div class="input-group">
                 <label for="nim">NIM</label>
-                <input type="text" id="nim" name="nim" placeholder="username@gmail.com" required>
+                <input type="text" id="nim" name="nim" placeholder="Masukkan NIM Anda" required>
             </div>
             
             <div class="input-group">
@@ -162,7 +164,12 @@
             <button type="submit" class="login-btn">Login</button>
         </form>
         
-        <p class="login-info">Login menggunakan akun siakad</p>
+        <p class="login-info">
+            Jika Anda tidak bisa login, harap menghubungi<br> 
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20tidak%20bisa%20login" target="_blank" style="color: #00e676; text-decoration: none;">
+                CP via WhatsApp
+            </a>.
+        </p>
     </div>
 
     <script>
