@@ -19,4 +19,5 @@ Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
 Route::get('home', [HomeController::class, 'index'])->middleware('auth:mahasiswa');
+Route::post('vote', [HomeController::class, 'vote'])->middleware('auth:mahasiswa')->name('vote');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');

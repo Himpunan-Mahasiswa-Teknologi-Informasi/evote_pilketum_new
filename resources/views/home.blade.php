@@ -245,67 +245,33 @@
         <h2 class="section-title">CALON KETUA UMUM</h2>
 
         <div class="candidates">
-            <div class="candidate-card">
-                <div class="candidate-header">
-                    <h3>KANDIDAT 1</h3>
-                </div>
-                <div class="candidate-content">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Foto Ghoffar Abdul Ja'far"
-                        class="candidate-image">
-                    <h3>Ghoffar Abdul Ja'far</h3>
-                    <p>D-IV Teknik Informatika</p>
 
-                    <div class="vision-mission">
-                        <h3>VISI</h3>
-                        <p>Menciptakan ekosistem pada Himpunan Mahasiswa Teknologi Informasi yang inovatif dan kreatif
-                            sebagai sarana kolaborasi, penyalur aspirasi, serta wadah peningkatan kompetensi mahasiswa
-                            Jurusan Teknologi Informasi.</p>
+            @foreach ($paslons as $paslon)
+                <div class="candidate-card">
+                    <div class="candidate-header">
+                        <h3>KANDIDAT {{ $paslon->no_urut }}</h3>
+                    </div>
+                    <div class="candidate-content">
+                        <img src="{{ asset('storage/' . $paslon->foto) }}" alt="Foto {{ $paslon->nama }}"
+                            class="candidate-image">
+                        <h3>{{ $paslon->nama }}</h3>
+                        <p>{{ $paslon->prodi }}</p>
 
-                        <h3>MISI</h3>
-                        <ol>
-                            <li>Membangun hubungan yang kuat antar anggota Himpunan Mahasiswa Teknologi Informasi dalam
-                                peningkatan kompetensi untuk menciptakan ekosistem organisasi yang inovatif dan kreatif.
-                            </li>
-                            <li>Sebagai sarana kolaborasi bagi Mahasiswa Jurusan Teknologi Informasi yang adaptif dalam
-                                melaksanakan program kerja dan agenda Himpunan Mahasiswa Teknologi Informasi agar tetap
-                                relevan dengan perkembangan zaman.</li>
-                            <li>Sebagai sarana penyalur aspirasi yang efektif bagi Mahasiswa Jurusan Teknologi
-                                Informasi.</li>
-                        </ol>
+                        <div class="vision-mission">
+                            <h3>VISI</h3>
+                            <p>{{ $paslon->visi }}</p>
+
+                            <h3>MISI</h3>
+                            <ol>
+                                @foreach ($paslon->misis as $misi)
+                                    <li>{{ $misi->misi }}</li>
+                                @endforeach
+                            </ol>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
 
-            <div class="candidate-card">
-                <div class="candidate-header">
-                    <h3>KANDIDAT 2</h3>
-                </div>
-                <div class="candidate-content">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Foto Ramadhan Maulana A."
-                        class="candidate-image">
-                    <h3>Ramadhan Maulana A.</h3>
-                    <p>D-IV Sistem Informasi Bisnis</p>
-
-                    <div class="vision-mission">
-                        <h3>VISI</h3>
-                        <p>Menciptakan ekosistem pada Himpunan Mahasiswa Teknologi Informasi yang inovatif dan kreatif
-                            sebagai sarana kolaborasi, penyalur aspirasi, serta wadah peningkatan kompetensi mahasiswa
-                            Jurusan Teknologi Informasi.</p>
-
-                        <h3>MISI</h3>
-                        <ol>
-                            <li>Membangun hubungan yang kuat antar anggota Himpunan Mahasiswa Teknologi Informasi dalam
-                                peningkatan kompetensi untuk menciptakan ekosistem organisasi yang inovatif dan kreatif.
-                            </li>
-                            <li>Sebagai sarana kolaborasi bagi Mahasiswa Jurusan Teknologi Informasi yang adaptif dalam
-                                melaksanakan program kerja dan agenda Himpunan Mahasiswa Teknologi Informasi agar tetap
-                                relevan dengan perkembangan zaman.</li>
-                            <li>Sebagai sarana penyalur aspirasi yang efektif bagi Mahasiswa Jurusan Teknologi
-                                Informasi.</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="video-section video-card">
@@ -322,50 +288,54 @@
         <div class="voting-section">
             <h2 class="section-title">PILIH CALON KETUA UMUM</h2>
 
-            <div class="voting-options">
-                <div class="vote-card" onclick="selectCandidate(1)">
-                    <img src="/placeholder.svg?height=180&width=250" alt="Ghoffar Abdul Ja'far" class="candidate-image">
-                    <h3>Ghoffar Abdul Ja'far</h3>
-                    <div class="vote-check"></div>
+            <form id="vote_form" action="{{ route('vote') }}" method="POST" onsubmit="return submitVote()">
+                @csrf
+                <div class="voting-options">
+                    @foreach ($paslons as $paslon)
+                        <div class="vote-card" onclick="selectCandidate('{{ $paslon->no_urut }}')">
+                            <img src="{{ asset('storage/' . $paslon->foto) }}" alt="{{ $paslon->nama }}"
+                                class="candidate-image">
+                            <h3>{{ $paslon->nama }}</h3>
+                            <div class="vote-check"></div>
+                        </div>
+                    @endforeach
                 </div>
-
-                <div class="vote-card" onclick="selectCandidate(2)">
-                    <img src="/placeholder.svg?height=180&width=250" alt="Ramadhan Maulana A." class="candidate-image">
-                    <h3>Ramadhan Maulana A.</h3>
-                    <div class="vote-check"></div>
-                </div>
-            </div>
-
-            <button class="vote-button" onclick="submitVote()">Vote</button>
+                <input type="hidden" id="no_urut" name="no_urut">
+                <button type="submit" class="vote-button">Vote</button>
+            </form>
         </div>
     </div>
 
     <script>
         let selectedCandidate = null;
 
-        function selectCandidate(candidateId) {
+        function selectCandidate(candidateNum) {
             const cards = document.querySelectorAll('.vote-card');
             cards.forEach(card => card.classList.remove('selected'));
             const checks = document.querySelectorAll('.vote-check');
             checks.forEach(check => check.style.display = 'none');
 
-            const selectedCard = document.querySelector(`.vote-card:nth-child(${candidateId})`);
+            const selectedCard = document.querySelector(`.vote-card:nth-child(${candidateNum})`);
             const selectedCheck = selectedCard.querySelector('.vote-check');
             selectedCard.classList.add('selected');
             selectedCheck.style.display = 'flex';
-            selectedCandidate = candidateId;
+            selectedCandidate = candidateNum;
+            document.getElementById('no_urut').value = candidateNum;
         }
 
         function submitVote() {
             if (!selectedCandidate) {
                 alert('Harap pilih salah satu kandidat.');
-                return;
+                return false;
             }
 
             if (confirm(`Apakah Anda yakin ingin memilih kandidat ${selectedCandidate}?`)) {
                 alert(`Suara Anda untuk kandidat ${selectedCandidate} telah diterima!`);
+                return true;
+
             } else {
                 alert("Pemilihan dibatalkan. Silakan pilih kembali jika Anda berubah pikiran.");
+                return false;
             }
         }
     </script>
