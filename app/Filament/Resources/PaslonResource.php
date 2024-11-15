@@ -40,6 +40,16 @@ class PaslonResource extends Resource
                     ->label('Program Studi')
                     ->required(),
 
+                Forms\Components\TextInput::make('kelas')
+                    ->label('Kelas')
+                    ->required(),
+
+                Forms\Components\TextInput::make('linkedin')
+                    ->label('Link LinkedIn')
+                    ->url()
+                    ->suffixIcon('heroicon-m-globe-alt')
+                    ->required(),
+
                 Forms\Components\Textarea::make('visi')
                     ->label('Visi')
                     ->required()
