@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Paslon;
 use App\Models\Vote;
 use App\Models\Mahasiswa;
+use App\Models\Misi;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $paslons = Paslon::select('no_urut', 'nama', 'prodi', 'visi', 'foto')->get();
+        // Memuat data paslon beserta misinya secara lengkap
+        $paslons = Paslon::with('misis')->get();
+
         return view('home', compact('paslons'));
     }
+
 
     public function vote(Request $request)
     {

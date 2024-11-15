@@ -16,8 +16,8 @@ class CreateImportsTable extends Migration
             $table->string('importer');
             $table->integer('total_rows');
             $table->timestamps();
-            $table->string('processed_rows')->default('');;
-            $table->string('successful_rows')->default('');;
+            $table->integer('processed_rows')->default(0); // Ubah ke integer
+            $table->integer('successful_rows')->default(0); // Ubah ke integer
         });
     }
 
@@ -26,4 +26,3 @@ class CreateImportsTable extends Migration
         Schema::dropIfExists('imports');
     }
 }
-

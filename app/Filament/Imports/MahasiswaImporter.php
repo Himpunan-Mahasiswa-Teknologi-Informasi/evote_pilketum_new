@@ -7,6 +7,7 @@ use App\Models\Mahasiswa;
 use Filament\Actions\Imports\ImportColumn;
 use Filament\Actions\Imports\Importer;
 use Filament\Actions\Imports\Models\Import;
+use Carbon\Carbon;
 
 class MahasiswaImporter extends Importer
 {
@@ -16,7 +17,7 @@ class MahasiswaImporter extends Importer
     {
         return [
             ImportColumn::make('nim')
-                ->label('nim')
+                ->label('NIM')
                 ->requiredMapping()
                 ->rules(['required', 'max:255']),
         ];
@@ -27,6 +28,11 @@ class MahasiswaImporter extends Importer
         $data = $this->data;
 
         Log::info('Importing record: ', $data);
+
+        if (empty($data['nim'])) {
+            Log::error('NIM is missing in the CSV data.');
+            return null;
+        }
 
         return Mahasiswa::firstOrNew([
             'nim' => $data['nim'],

@@ -245,34 +245,34 @@
         <h2 class="section-title">CALON KETUA UMUM</h2>
 
         <div class="candidates">
-
             @foreach ($paslons as $paslon)
                 <div class="candidate-card">
                     <div class="candidate-header">
                         <h3>KANDIDAT {{ $paslon->no_urut }}</h3>
                     </div>
                     <div class="candidate-content">
-                        <img src="{{ asset('storage/' . $paslon->foto) }}" alt="Foto {{ $paslon->nama }}"
-                            class="candidate-image">
+                        <img src="{{ asset('storage/' . $paslon->foto) }}" alt="Foto {{ $paslon->nama }}" class="candidate-image">
                         <h3>{{ $paslon->nama }}</h3>
                         <p>{{ $paslon->prodi }}</p>
-
+        
                         <div class="vision-mission">
                             <h3>VISI</h3>
                             <p>{{ $paslon->visi }}</p>
-
+                        
                             <h3>MISI</h3>
                             <ol>
-                                @foreach ($paslon->misis as $misi)
+                                @forelse ($paslon->misis as $misi)
                                     <li>{{ $misi->misi }}</li>
-                                @endforeach
+                                @empty
+                                    <li>Tidak ada misi yang tersedia.</li>
+                                @endforelse
                             </ol>
                         </div>
+                        
                     </div>
                 </div>
             @endforeach
-
-        </div>
+        </div>        
 
         <div class="video-section video-card">
             <h2 class="section-title">VIDEO ORASI EKSTERNAL CALON KANDIDAT KETUA UMUM</h2>
