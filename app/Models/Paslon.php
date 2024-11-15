@@ -17,10 +17,12 @@ class Paslon extends Model
 
     protected $fillable = [
         'no_urut',
-        'visi',
-        'foto',
         'nama',
-        'prodi'
+        'prodi',
+        'kelas',
+        'linkedin',
+        'visi',
+        'foto'
     ];
 
     // Relasi dengan model Vote
