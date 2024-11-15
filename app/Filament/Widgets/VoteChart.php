@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Vote;
+use App\Models\Mahasiswa;
 use Filament\Widgets\ChartWidget;
 
 class VoteChart extends ChartWidget
@@ -18,9 +19,15 @@ class VoteChart extends ChartWidget
             ->groupBy('paslon.no_urut')
             ->map(fn($items) => $items->count());
 
+        // Hitung jumlah mahasiswa yang belum melakukan vote
+        $belumVoteCount = Mahasiswa::where('status_vote', 'no')->count();
+
         // Pisahkan data menjadi label dan data untuk chart
         $labels = $votes->keys()->toArray();
         $data = $votes->values()->toArray();
+
+        $labels[] = 'Belum Vote';
+        $data[] = $belumVoteCount;
 
         return [
             'datasets' => [
